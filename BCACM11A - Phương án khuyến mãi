@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+	ios_base::sync_with_stdio(0);
+	cin.tie(0);
+	int t;
+	cin>>t;
+	while(t--){
+		int n,m,k,ok=1;
+		int g=145,h=180,i=900;
+		cin>>n>>m>>k;
+		if(n>g) ok=0;
+		else{
+			h-=n;i-=n;
+			if(m>h) ok=0;
+			else{
+				i-=m;
+				if(k>i) ok=0;
+			}
+		}
+		if(ok==1) cout<<"YES\n";
+		else cout<<"NO\n";
+	}
+}
