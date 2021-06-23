@@ -1,0 +1,53 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+	ios_base::sync_with_stdio(0);
+	cin.tie(0);
+	int t;
+	cin>>t;
+	while(t--){
+		int n,x,y;
+		cin>>n>>x>>y;
+		x--;y--;
+		int a[n][n];
+		int dong=n,cot=n,k=1,p=0,i,j,ok=0;
+		while(k<=n*n){
+			for(i=p;i<cot;i++){
+				if(p==x&&i==y){
+					cout<<k<<endl;
+					ok=1;
+					break;
+				}
+				a[p][i]=k++;
+			}
+			for(i=p+1;i<dong;i++){
+				if(i==x&&cot-1==y){
+					cout<<k<<endl;
+					ok=1;
+					break;
+				}
+				a[i][cot-1]=k++;
+			}	
+			for(i=cot-2;i>=p;i--){
+				if(dong-1==x&&i==y){
+					ok=1;
+					cout<<k<<endl;
+					break;
+				}
+				a[dong-1][i]=k++;
+			}
+			for(i=dong-2;i>p;i--){
+				if(i==x&&p==y){
+					cout<<k<<endl;
+					ok=1;
+					break;
+				}
+				a[i][p]=k++;
+			}
+			if(ok==1) break;
+			p++;
+			dong--;
+			cot--;
+		}
+	}
+}
