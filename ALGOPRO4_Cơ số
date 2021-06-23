@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+	ios_base::sync_with_stdio(0);
+	cin.tie(0);
+ 	string x,a="";
+	cin>>x;
+	int k=x.size()%3;
+	if(k==0) k=3;
+	x.insert(0,(3-k),'0');
+	for(int i=2;i<x.size();i+=3){
+		string s="";
+		s=s+x[i-2]+x[i-1]+x[i];
+		if(s=="000") a=a+'0';
+		else if(s=="001") a=a+'1';
+		else if(s=="010") a=a+'2';
+		else if(s=="011") a=a+'3';
+		else if(s=="100") a=a+'4';
+		else if(s=="101") a=a+'5';
+		else if(s=="110") a=a+'6';
+		else if(s=="111") a=a+'7';
+	}
+	cout<<a;
+}
