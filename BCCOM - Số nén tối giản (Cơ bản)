@@ -1,0 +1,19 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		int n;
+		cin>>n;
+		while(n>9){
+			int k=n,s=0;
+			while(k!=0){
+				s+=k%10;
+				k/=10;
+			}
+			n=s;
+		}
+		cout<<n<<"\n";
+	}
+}
