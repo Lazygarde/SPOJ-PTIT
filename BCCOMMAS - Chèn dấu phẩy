@@ -1,0 +1,9 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+	string a;
+	cin>>a;
+	int n=a.size();
+	for(int i=n-3;i>0;i-=3) a.insert(i,1,',');
+	cout<<a;
+}
