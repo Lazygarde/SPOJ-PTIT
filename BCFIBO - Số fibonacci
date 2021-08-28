@@ -1,0 +1,13 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+	long long n,a=0,b=1,pos=0;
+	cin>>n;
+	while(pos<n){
+		long long c=(a+b)%1000000007;
+		b=a;
+		a=c;
+		pos++;
+	}
+	cout<<a;
+}
