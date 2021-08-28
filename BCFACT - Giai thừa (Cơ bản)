@@ -1,0 +1,14 @@
+#include <bits/stdc++.h>
+using namespace std;
+long long luythua(long long n){
+	if(n==0) return 1;
+	return n*luythua(n-1);
+}
+int main(){
+	while(1){
+		long long n;
+		cin>>n;
+		if(n==0) return 0;
+		cout<<luythua(n)<<"\n";
+	}
+}
