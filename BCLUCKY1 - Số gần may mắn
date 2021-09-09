@@ -1,0 +1,13 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+	long long t,s=0;
+	cin>>t;
+	while(t!=0){
+		int k=t%10;
+		if(k==4||k==7) s++;
+		t/=10;
+	}
+	if(s==4||s==7) cout<<"YES";
+	else cout<<"NO";
+}
