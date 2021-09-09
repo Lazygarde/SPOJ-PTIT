@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+	long long n,x,s=1e9;
+	cin>>n>>x;
+	long long a[n];
+	map <long long,long long> m;
+	vector <long long> c;
+	for(int i=0;i<n;i++){
+		cin>>a[i];
+		m[a[i]]++;
+	}
+	for(int i=0;i<n;i++){
+		if(m[a[i]]<s) s=m[a[i]];
+	}
+	for(int i=0;i<n;i++){
+		if(m[a[i]]==s){
+			c.push_back(a[i]);
+		}
+	}
+	sort(c.begin(),c.end());
+	long long k=c[c.size()-1];
+	cout<<n*x-k*m[k];
+}
