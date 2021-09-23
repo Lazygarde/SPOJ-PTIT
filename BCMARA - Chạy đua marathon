@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+	int n,am=1000000,bm=1000000,cm=1000000;
+	cin>>n;
+	int a[n][3];
+	for(int i=0;i<n;i++) cin>>a[i][0]>>a[i][1]>>a[i][2];
+	for(int i=0;i<n-1;i++){
+		for(int j=i+1;j<n;j++){
+			if(a[i][0]>a[j][0]){
+				swap(a[i][0],a[j][0]);
+				swap(a[i][1],a[j][1]);
+				swap(a[i][2],a[j][2]);
+			}
+			else if(a[i][0]==a[j][0]){
+				if(a[i][1]>a[j][1]){
+					swap(a[i][1],a[j][1]);
+					swap(a[i][2],a[j][2]);
+				}
+				else if(a[i][1]==a[j][1]){
+					if(a[i][2]>a[j][2]){
+						swap(a[i][2],a[j][2]);
+					}
+				}
+			}
+		}
+	}
+	for(int i=0;i<n;i++){
+		cout<<a[i][0]<<" "<<a[i][1]<<" "<<a[i][2]<<endl;
+	}
+}
