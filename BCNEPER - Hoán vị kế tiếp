@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		int k;
+		string a;
+		cin>>k>>a;
+		int n=a.size(),ok=0;
+		for(int i=n-2;i>=0;i--){
+			if(a[i]<a[i+1]){
+				ok=1;
+				sort(a.begin()+i+1,a.end());
+				for(int j=i+1;j<n;j++){
+					if(a[j]>a[i]){
+						swap(a[i],a[j]);
+						break;
+					}
+				}
+				break;
+			}
+		}
+		cout<<k<<" ";
+		if(ok==0) cout<<"BIGGEST"<<endl;
+		else cout<<a<<endl;
+	}
+}
