@@ -1,0 +1,35 @@
+#include <bits/stdc++.h>
+using namespace std;
+vector<int>a(100003,1);
+vector<int>b;
+vector<int> pos(100003);
+void era(){
+	a[0]=0;a[1]=0;
+	for(long long i=2;i<=100000;i++){
+		if(a[i]==1){
+			b.push_back(i);
+			for(long long j=i*i;j<=100000;j+=i){
+				a[j]=0;
+			}
+		}
+		pos[i]=b.size()-1;
+	}
+}
+int main(){
+	int t;
+	cin>>t;
+	era();
+	while(t--){
+		int n,s=0;
+		cin>>n;
+		for(int i=0;i<=pos[n/2]+500;i++){
+			int j=i,tong=0;
+			while(tong<n){
+				tong+=b[j];
+				j++;
+			}
+			if(tong==n) s++;
+		}
+		cout<<s<<endl;
+	}
+}
