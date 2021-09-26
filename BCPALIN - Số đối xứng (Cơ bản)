@@ -1,0 +1,17 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		int n;
+		cin>>n;
+		int k=n,s=0;
+		while(k!=0){
+			s=s*10+k%10;
+			k/=10;
+		}
+		if(s==n) cout<<"YES\n";
+		else cout<<"NO\n";
+	}
+}
