@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+#define endl "\n"
+using namespace std;
+int main(){
+	ios_base::sync_with_stdio(0);
+	cin.tie(0);
+	int n,x;
+	cin>>n;
+	queue <int> a;
+	for(int i=0;i<n;i++){
+		cin>>x;
+		if(x==1) cout<<a.size()<<endl;
+		else if(x==2){
+			if(a.empty()) cout<<"YES"<<endl;
+			else cout<<"NO"<<endl;
+		}
+		else if(x==3){
+			cin>>x;
+			a.push(x);
+		}
+		else if(x==4){
+			if(!a.empty()) a.pop();
+		}
+		else{
+			if(a.empty()) cout<<-1<<endl;
+			else{
+				if(x==5) cout<<a.front()<<endl;
+				else{
+					queue <int> b=a;
+					while(b.size()>1) b.pop();
+					cout<<b.front()<<endl;
+				}
+			}
+		}
+	}
+}
