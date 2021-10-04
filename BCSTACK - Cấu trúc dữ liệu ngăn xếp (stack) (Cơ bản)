@@ -1,0 +1,35 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+	ios_base::sync_with_stdio(0);
+	cin.tie(0);
+	string x;
+	int k;
+	stack <int> a;
+	while(1){
+		cin>>x;
+		if(x=="end") return 0;
+		else if(x=="init"){
+			while(a.empty()==0){
+			 	a.pop();
+			}
+		}
+		else if(x=="push"){
+			cin>>k;
+			a.push(k);
+		}
+		else if(x=="pop"){
+			if(a.empty()==0) a.pop();
+		} 
+		else if(x=="top"){
+			if(a.empty()==1) cout<<-1<<endl;
+			else cout<<a.top()<<endl;
+		}
+		else if(x=="size"){
+			cout<<a.size()<<endl;
+		}
+		else if(x=="empty"){
+			cout<<a.empty()<<endl;
+		}
+	}
+}
