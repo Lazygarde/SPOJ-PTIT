@@ -1,0 +1,16 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+	int l,r,s=0;
+	cin>>l>>r;
+	vector <int> a(r+1);
+	for(int i=1;i<=r;i++){
+		for(int j=1;j<=r/i;j++){
+			a[j*i]+=i;
+		}
+	}
+	for(int i=l;i<=r;i++){
+		if(a[i]-i>i) s++;
+	}
+	cout<<s;
+}
