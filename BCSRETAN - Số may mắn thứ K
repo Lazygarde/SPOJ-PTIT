@@ -1,0 +1,16 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+	long long k,s=0,a[100];
+	cin>>k;
+	k++;
+	while(k!=0){
+		s++;
+		a[s]=k%2;
+		k/=2;
+	}
+	for(int i=s-1;i>=1;i--){
+		if(a[i]==1) cout<<7;
+		else cout<<4;
+	}
+}
