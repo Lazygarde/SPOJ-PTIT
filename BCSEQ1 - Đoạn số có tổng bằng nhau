@@ -1,0 +1,37 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		int m,n;
+		cin>>m>>n;
+		long long s=0,a[n];
+		for(int i=0;i<n;i++){
+			cin>>a[i];
+			s+=a[i];
+		}
+		vector <long long> b;
+		long long k=sqrt(s);
+		if(k*k==s) b.push_back(k);
+		for(int i=1;i<k;i++){
+			if(s%i==0){
+				b.push_back(i);
+				b.push_back(s/i);
+			}
+		}
+		sort(b.begin(),b.end());
+		for(int i=0;i<b.size();i++){
+			long long ss=0;
+			for(int j=0;j<n;j++){
+				ss+=a[j];
+				if(ss>b[i]) break;
+				else if(ss==b[i]) ss=0;
+			}
+			if(ss==0){
+				cout<<m<<" "<<b[i]<<endl;
+				break;
+			}
+		}
+	}
+}
