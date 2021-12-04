@@ -1,0 +1,18 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		int n,s=2;
+		cin>>n;
+		long long a=1,b=1;
+		while(s<n){
+			long long c=(a+b)%1000000007;
+			b=a;
+			a=c;
+			s++;
+		}
+		cout<<a<<endl;
+	}
+}
