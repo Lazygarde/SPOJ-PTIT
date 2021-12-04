@@ -1,0 +1,17 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		long long n,a=0,b=1;
+		cin>>n;
+		while(a<n){
+			long long c=a+b;
+			b=a;
+			a=c;
+		}
+		if(a==n) cout<<"YES\n";
+		else cout<<"NO\n";
+	}
+}
