@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+int main(){
+	int t,i,n,k;
+	cin>>t;
+	while(t--){
+	 	cin>>n>>k;
+	 	int a[k+1];
+	 	for(i=1;i<=k;i++) a[i]=i;
+	 	while(1){
+	 		for(i=1;i<=k;i++) cout<<a[i];
+	 		cout<<" ";
+	 		i=k;
+	 		while(a[i]==n-k+i){
+	 			i--;
+	 			if(i==0) break;
+			}
+	 		if(i==0) break;
+	 		else a[i]++;
+	 		int p=a[i];
+	 		while(i<=k) a[i++]=p++;
+		}
+		cout<<endl;
+	}
+}
