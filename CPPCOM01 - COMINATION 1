@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+int a[200];
+void in(int n){
+	for(int i=0;i<n;i++) cout<<a[i];
+}
+void nhiphan(int j,int n){
+	if(j>=n){
+		in(n);
+		cout<<" ";
+	}
+	else{
+		for(int i=0;i<2;i++){
+			a[j]=i;
+			nhiphan(j+1,n);
+		}
+	}
+}
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		int n;
+		cin>>n;
+		nhiphan(0,n);
+		cout<<endl;
+	}
+}
