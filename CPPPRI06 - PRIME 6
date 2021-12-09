@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+vector<int> a(10004,1);
+void era(){
+	for(int i=2;i*i<=10001;i++){
+		if(a[i]==1){
+			for(int j=i*i;j<=10001;j+=i){
+				a[j]=0;
+			}
+		}
+	}
+	for(int i=2;i<=10001;i++){
+		if(a[i]==1) a[i]=i;
+	}
+}
+int main(){
+	int t;
+	cin>>t;
+	era();
+	while(t--){
+		int n;
+		cin>>n;
+		for(int i=2;i<=n/2;i++){
+			if(a[i]==i&&a[n-i]==n-i){
+				cout<<i<<" "<<n-i<<endl;
+				break;
+			}
+		}
+	}
+}
