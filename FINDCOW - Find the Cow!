@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+int main(){
+	string a,b="";
+	cin>>a;
+	int s=0;
+	for(int i=1;i<a.length();i++){
+		if(a[i]=='('&&a[i-1]=='('){
+			b+='(';
+		}
+		else if(a[i]==')'&&a[i-1]==')'){
+			b+=')';
+		}
+	}
+	for(int i=0;i<b.length();i++){
+		if(b[i]=='('){
+			for(int j=i+1;j<b.length();j++){
+				if(b[j]==')') s++;
+			}
+		}
+	}
+	cout<<s;
+}
