@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+using namespace std;
+int a[10005];
+void Era(){
+    for (int i = 2;i*i<=10001;i++){
+        if (a[i]==0){
+            for (int j = i*i;j<=10001;j+=i){
+                if (a[j]==0){
+                    a[j]=i;
+                }
+            }
+        }
+    }
+    for (int i = 2;i<=10001;i++){
+        if (a[i]==0) a[i]=i;
+    }
+}
+int main (){
+    int t;
+    cin>>t;
+    Era();
+    a[1]=1;
+    while(t--){
+    	int n;
+    	cin>>n;
+    	for(int i=1;i<=n;i++){
+    		cout<<a[i]<<" ";
+		}
+		cout<<endl;
+	}
+}
