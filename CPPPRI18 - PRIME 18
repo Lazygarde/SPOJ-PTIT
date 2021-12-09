@@ -1,0 +1,13 @@
+#include <stdio.h>
+int main(){
+	int t;
+	scanf("%d",&t);
+	while(t--){
+		int m,n,a,b,s=0;
+		scanf("%d%d%d%d",&m,&n,&a,&b);
+		for(int i=m;i<=n;i++){
+			if(i%a==0||i%b==0) s++;
+		}
+		printf("%d\n",s);
+	}
+}
