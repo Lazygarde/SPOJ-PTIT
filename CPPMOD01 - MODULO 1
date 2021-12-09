@@ -1,0 +1,16 @@
+#include <bits/stdc++.h>
+using namespace std;
+long long pow1(long long n,long long m,long long p){
+	if(m==1) return n;
+	if(m%2==0) return (pow1(n,m/2,p)*pow1(n,m/2,p))%p;
+	else return (n*pow1(n,m-1,p))%p;
+}
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		long long n,m,p;
+		cin>>n>>m>>p;
+		cout<<pow1(n,m,p)<<endl;
+	}
+}
