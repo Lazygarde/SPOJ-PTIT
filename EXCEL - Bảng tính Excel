@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+string Column (long x){
+    string tmp = "";
+    char c;
+    while (1)
+    {
+        if (x==0) break;
+        x--;
+        c = 'A' + x%26;
+        tmp = c + tmp;
+        x = x/26;
+    }
+    return tmp;
+}
+int main (){
+    char tmp;
+    long r, c;
+    while (1){
+        cin>>tmp>>r>>tmp>>c;
+        if (r==0 && c==0) break;
+        cout<<Column(c)<<r<<endl;
+    }
+    return 0;
+}
