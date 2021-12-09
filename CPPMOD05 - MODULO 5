@@ -1,0 +1,16 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+	int t;
+	cin>>t;
+	cin.ignore();
+	while(t--){
+		string a;
+		long long b,du=0;
+		cin>>a>>b;
+		for(int i=0;i<a.length();i++){
+			du=(du*10+a[i]-48)%b;
+		}
+		cout<<du<<endl;
+	}
+}
