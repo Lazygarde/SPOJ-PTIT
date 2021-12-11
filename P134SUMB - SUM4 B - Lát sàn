@@ -1,0 +1,14 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+	long long a,b;
+	cin>>a>>b;
+	b+=a;
+	a/=2;
+	a+=2;
+	long long k=a*a-4*b;
+	long long m=(a+sqrt(k))/2;
+	long long n=(a-sqrt(k))/2;
+	if(m>n) swap(m,n);
+	cout<<m<<" "<<n;
+}
