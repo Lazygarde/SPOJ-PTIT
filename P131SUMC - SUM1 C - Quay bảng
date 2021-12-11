@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+	int pos=0;
+	float a,b,c,d;
+	cin>>a>>b>>c>>d;
+	float maxx=abs(a/c-b/d);
+	if(abs(c/d-a/b)>maxx){
+		pos=1;
+		maxx=abs(c/d-a/b);
+	}
+	if(abs(d/b-c/a)>maxx){
+		pos=2;
+		maxx=abs(d/b-c/a);
+	}
+	if(abs(b/a-d/c)>maxx){
+		pos=3;
+		maxx=abs(b/a-d/c);
+	}
+	cout<<pos;
+}
