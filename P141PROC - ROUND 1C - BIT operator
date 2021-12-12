@@ -1,0 +1,16 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+	int t,s=0;
+	cin>>t;
+	cin.ignore();
+	while(t--){
+		string x;
+		cin>>x;
+		if(x=="X++") s++;
+		else if(x=="++X") s++;
+		else if(x=="--X") s--;
+		else if(x=="X--") s--;
+	}
+	cout<<s;
+}
