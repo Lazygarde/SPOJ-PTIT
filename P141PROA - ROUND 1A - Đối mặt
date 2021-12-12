@@ -1,0 +1,16 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+	int a,n,s=0;
+	cin>>a>>n;
+	for(int i=0;i<n;i++){
+		int t;
+		char b;
+		cin>>t>>b;
+		s+=t;
+		if(s>=210) break;
+		if(b=='T') a++;
+	}
+	if(a>8) a=a%8;
+	cout<<a;
+}
