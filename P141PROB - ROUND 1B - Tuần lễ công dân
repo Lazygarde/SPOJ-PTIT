@@ -1,0 +1,71 @@
+#include <iostream>
+using namespace std;
+int check[2502][2502] = {0};
+int main()
+{
+    int R, S;
+    cin >> R >> S;
+    char HT[51][51];
+    int STT[51][51];
+    int stt = 1;
+    for (int i = 1; i <= R; i++)
+        for (int j = 1; j <= S; j++)
+        {
+            cin >> HT[i][j];
+            STT[i][j] = stt;
+            stt++;
+        }
+    int x_xq[] = {-1, -1, +0, +1, +1, +1, +0, -1};
+    int y_xq[] = {+0, +1, +1, +1, +0, -1, -1, -1};
+    int gt_M = -1, i_M = 0, j_M = 0;
+    for (int i = 1; i <= R; i++)
+    {
+        for (int j = 1; j <= S; j++)
+        {
+            if (HT[i][j] == '.')
+            {
+                int d = 0;
+                for (int t = 0; t < 8; t++)
+                {
+                    int x_m = x_xq[t] + j;
+                    int y_m = y_xq[t] + i;
+                    if (x_m >= 1 && x_m <= S && y_m >= 1 && y_m <= R && HT[y_m][x_m] == 'o')
+                        d++;
+                }
+                if (d > gt_M)
+                {
+                    gt_M = d;
+                    i_M = i;
+                    j_M = j;
+                }
+            }
+        }
+    }
+    if (gt_M != -1)
+        HT[i_M][j_M] = 'o';
+    int count = 0;
+    for (int i = 1; i <= R; i++)
+    {
+        for (int j = 1; j <= S; j++)
+        {
+            if (HT[i][j] == 'o')
+            {
+                for (int t = 0; t < 8; t++)
+                {
+                    int x_m = x_xq[t] + j;
+                    int y_m = y_xq[t] + i;
+                    if (x_m >= 1 && x_m <= S && y_m >= 1 && y_m <= R && HT[y_m][x_m] == 'o')
+                    {
+                        if (check[STT[i][j]][STT[y_m][x_m]] == 0)
+                        {
+                            count++;
+                            check[STT[i][j]][STT[y_m][x_m]] = 1;
+                            check[STT[y_m][x_m]][STT[i][j]] = 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    cout << count;
+}
