@@ -1,0 +1,43 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main (){
+	int t;
+	cin>>t;
+	cin.ignore();
+	while(t--){
+		string a;
+		getline(cin,a);
+		int b[200]={},s=0,ok=1;
+		char c;
+		for(int i=0;i<a.size();i++){
+			b[a[i]]++;
+		}
+		for(int i='A';i<='Z';i++){
+			if(b[i]>s){
+				s=b[i];
+				c=i;
+			}
+		}
+		for(int i='A';i<='Z';i++){
+			if(s==b[i]&&i!=c){
+				ok=0;
+				break;
+			}
+		}
+		if(ok==0) cout<<"NOT POSSIBLE\n";
+		else{
+			int k=c-'E';
+			if(k<0) k+=26;
+			cout<<k<<" ";
+			for(int i=0;i<a.size();i++){
+				if(a[i]!=' '){
+					char h=a[i]-k;
+					if(h<'A') h+=26;
+					cout<<h;
+				}
+				else cout<<" ";
+			}
+			cout<<endl;
+		}
+	}
+}
