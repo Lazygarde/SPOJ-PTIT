@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+int cnt=0,n,k,s;
+void ham(int x,int d,int S){
+	if(S>s) return;
+	if(d==0){
+		if(s==S) cnt++;
+	}
+	else{
+		for(int i=x+1;i<=n;i++){
+			ham(i,d-1,S+i);
+		}
+	}
+}
+int main(){
+	while(1){
+		cin>>n>>k>>s;
+		if(n==0&&k==0&&s==0) return 0;
+		cnt=0;
+		ham(0,k,0);
+		cout<<cnt<<endl;
+	}
+}
