@@ -1,0 +1,14 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+	int n,k;
+	cin>>n>>k;
+	n--;
+	int h=k/n;
+	if(h*n==k){
+		cout<<k+h-1<<" "<<h+k;
+	}
+	else{
+		cout<<h+k<<" "<<h+k;
+	}
+}
