@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+struct y{
+	int c;
+	int d;
+};
+bool cmp(y e,y f){
+	return e.c<f.c;
+}
+int main(){
+    long long n,s,m=0;
+    cin>>s>>n;
+    y a[n];
+    for(int i=0;i<n;i++){
+    	cin>>a[i].c>>a[i].d;
+	}
+	sort(a,a+n,cmp);
+	for(int i=0;i<n;i++){
+		if(s>a[i].c){
+			s+=a[i].d;
+			m++;
+		}
+		else{
+			cout<<"NO";
+			return 0;
+		}
+	}
+	cout<<"YES";
+}
