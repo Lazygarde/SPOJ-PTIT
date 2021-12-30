@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+using namespace std;
+long long xdrake(long long n,long long k){
+	if(k==0) return 1;
+	if(k%2==0){
+		long long m=xdrake(n,k/2);
+		return (m*m)%1000000007;
+	}
+	else{
+		long long m=xdrake(n,k-1);
+		return (n*m)%1000000007;
+	}
+}
+int main(){
+	while(1){
+		long long n,k;
+		cin>>n>>k;
+		if(n==0&&k==0) break;
+		cout<<xdrake(n,k)<<endl;
+	}
+	return 0;
+}
