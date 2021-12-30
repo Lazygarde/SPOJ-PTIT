@@ -1,0 +1,11 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+	long long m,n,a;
+	cin>>m>>n>>a;
+	long long b=m/a;
+	if(a*b!=m) b++;
+	long long c=n/a;
+	if(a*c!=n) c++;
+	cout<<b*c;
+}
