@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main (){
+    int n = 0,arr[5],tmp;
+    for (int i=1; i<=4; i++){
+        cin>>tmp;
+        int kt = 0;
+        for (int i=1; i<=n; i++){
+            if (tmp==arr[i]){
+                kt = 1;
+                break;
+            }
+        }
+        if (kt==0){
+            n++;
+            arr[n]=tmp;
+        }
+    }
+    cout<<4-n;
+    return 0;
+}
