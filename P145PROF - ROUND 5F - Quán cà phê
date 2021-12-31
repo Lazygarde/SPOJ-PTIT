@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+struct cafe{
+	int h;
+	int ph;
+};
+bool cmp(cafe e,cafe f){
+	if(e.h==f.h) return e.ph<f.ph;
+	return e.h<f.h;
+}
+int main(){
+	int n,maxx=0,i;
+	cin>>n;
+	cafe a[n];
+	for(i=0;i<n;i++){
+		cin>>a[i].h>>a[i].ph;
+	}
+	sort(a,a+n,cmp);
+	i=0;
+	while(i<n){
+		int pos=i,s=0;
+		while(a[i].h==a[pos].h&&a[i].ph==a[pos].ph){
+			pos++;s++;
+		}
+		i=pos;
+		if(s>maxx) maxx=s;
+	}
+	cout<<maxx;
+}
