@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+vector <int> a(1e6+2,2);
+void era(){
+	a[1]=1;
+	for(long long i=2;i<=500000;i++){
+		for(long long j=2*i;j<=1000000;j+=i){
+			a[j]++;
+		}
+	}
+}
+int main(){
+	era();
+	int n,m,p;
+	cin>>n>>m>>p;
+	long long s=0;
+	for(int i=1;i<=n;i++){
+		for(int j=1;j<=m;j++){
+			for(int k=1;k<=p;k++){
+				s+=a[i*j*k]%1073741824;
+			}
+		}
+	}
+	cout<<s;
+}
