@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 #define endl "\n"
 using namespace std;
-long long a[500010];
 int main()
 {
     ios_base::sync_with_stdio(0);
