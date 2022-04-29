@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <math.h>
+int main()
+{
+	int t;
+	scanf("%d", &t);
+	long long d[103][103] = {};
+	for (int i = 0; i <= 100; i++)
+	{
+		for (int j = i; j <= 100; j++)
+		{
+			int c[101] = {};
+			for (int k = i + 1; k <= j; k++)
+			{
+				int b = k;
+				for (int kk = 2; kk <= sqrt(b); kk++)
+				{
+					while (b % kk == 0)
+					{
+						c[kk]++;
+						b /= kk;
+					}
+				}
+				if (b > 1)
+					c[b]++;
+			}
+			long long s = 1;
+			for (int k = 2; k <= 100; k++)
+			{
+				if (c[k] > 0)
+				{
+					s *= (c[k] + 1);
+				}
+			}
+			d[i][j] = s;
+		}
+	}
+	while (t--)
+	{
+		int m, n;
+		scanf("%d%d", &m, &n);
+		if (m > n)
+			printf("0\n");
+		else
+			printf("%lld\n", d[m][n]);
+	}
+}
