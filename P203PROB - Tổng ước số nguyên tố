@@ -34,7 +34,7 @@ int main()
 	while (t--)
 	{
 		int b;
-		scanf("%d", &b);
+		cin >> b;
 		while (b != 1)
 		{
 			s += a[b];
