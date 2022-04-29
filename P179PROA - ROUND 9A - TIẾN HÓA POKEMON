@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+	int t, max = 0, n, ma = 0;
+	char b[1000];
+	scanf("%d\n", &t);
+	while (t--)
+	{
+		char a[1000];
+		gets(a);
+		int c, d, s = 0, k = strlen(a);
+		scanf("%d%d\n", &d, &c);
+		while (c >= d)
+		{
+			s++;
+			c -= d;
+			c += 2;
+		}
+		ma += s;
+		if (s > max)
+		{
+			max = s;
+			n = k;
+			for (int i = 0; i < k; i++)
+			{
+				b[i] = a[i];
+			}
+		}
+	}
+	printf("%d\n", ma);
+	for (int i = 0; i < n; i++)
+	{
+		printf("%c", b[i]);
+	}
+}
