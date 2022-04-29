@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+	int t;
+	scanf("%d\n", &t);
+	while (t--)
+	{
+		char a[2000];
+		scanf("%s", &a);
+		int n = strlen(a), p = -1, s = 0;
+		for (int i = n - 2; i >= 0; i--)
+		{
+			if (a[i] > a[i + 1])
+			{
+				p = i;
+				break;
+			}
+		}
+		if (p == -1)
+		{
+			printf("-1\n");
+			continue;
+		}
+		int q = p + 1;
+		for (int i = p + 2; i < n; i++)
+		{
+			if (a[i] > s && a[i] > a[p + 1] && a[i] < a[p])
+			{
+				s = a[i];
+				q = i;
+			}
+		}
+		char b = a[p];
+		a[p] = a[q];
+		a[q] = b;
+		if (a[0] == '0')
+			printf("-1\n");
+		else
+			puts(a);
+	}
+}
