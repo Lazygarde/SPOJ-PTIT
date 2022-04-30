@@ -1,0 +1,101 @@
+#include <bits/stdc++.h>
+#define endl "\n"
+using namespace std;
+struct data
+{
+    int first, second, third;
+};
+int main()
+{
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    int n, k = 0;
+    cin >> n;
+    char a[n][n];
+    bool check[n][n];
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            cin >> a[i][j];
+            check[i][j] = 1;
+        }
+    }
+    struct data b, c, x, y;
+    cin >> b.first >> b.second >> c.first >> c.second;
+    b.third = 0;
+    check[b.first][b.second] = 0;
+    queue<struct data> d;
+    d.push(b);
+    while (d.size())
+    {
+        x = d.front();
+        d.pop();
+        y.first = x.first, y.second = x.second;
+        y.third = x.third + 1;
+        if (y.first == c.first && y.second == c.second)
+        {
+            cout << x.third;
+            return 0;
+        }
+        y.first = x.first + 1;
+        y.second = x.second;
+        while (check[y.first][y.second] && a[y.first][y.second] == '.' && y.first < n)
+        {
+            check[y.first][y.second] = 0;
+            d.push(y);
+            y.first++;
+        }
+        y.first = x.first - 1;
+        y.second = x.second;
+        while (check[y.first][y.second] && a[y.first][y.second] == '.' && y.first >= 0)
+        {
+            check[y.first][y.second] = 0;
+            d.push(y);
+            y.first--;
+        }
+        y.first = x.first;
+        y.second = x.second + 1;
+        while (check[y.first][y.second] && a[y.first][y.second] == '.' && y.second < n)
+        {
+            check[y.first][y.second] = 0;
+            d.push(y);
+            y.second++;
+        }
+        y.first = x.first;
+        y.second = x.second - 1;
+        while (check[y.first][y.second] && a[y.first][y.second] == '.' && y.second >= 0)
+        {
+            check[y.first][y.second] = 0;
+            d.push(y);
+            y.second--;
+        }
+    }
+}
+/* Do Xuan Huong
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@##################@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@#############################@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@&####################################@@@@@@@@@@@@
+@@@@@@@@@@##########################################@@@@@@@@@
+@@@@@@@@##############################################@@@@@@@
+@@@@@@#################################################@@@@@@
+@@@@@####################################################@@@@
+@@@%#####################@@@@@@@@@@@######################@@@
+@@@###################@@@@@@@@@@@@@@@@@####################@@
+@@##################@@@@@@         @@@@@@##################@@
+@@#################@@@@@             @@@@###################@
+@@@@@@@@@@@@@@@@@@@@@@@@             @@@@@@@@@@@@@@@@@@@@@@@@
+@                  &@@@@             @@@@           .......@@
+@@                  @@@@@@         @@@@@@           .......@@
+@@                    @@@@@@@@@@@@@@@@@            .......@@@
+@@@                      @@@@@@@@@@@               ......@@@@
+@@@@                                              ......@@@@@
+@@@@@@                                           ......@@@@@@
+@@@@@@@                                         .....@@@@@@@@
+@@@@@@@@@                                     .....@@@@@@@@@@
+@@@@@@@@@@@@                                ....@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@                         ....@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@%                .@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+*/
