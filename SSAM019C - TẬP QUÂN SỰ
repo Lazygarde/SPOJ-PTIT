@@ -1,0 +1,50 @@
+#include <stdio.h>
+int main()
+{
+    int t;
+    scanf("%d", &t);
+    while (t--)
+    {
+        int n, k;
+        scanf("%d%d", &n, &k);
+        int a[k], c[k];
+        for (int i = 0; i < k; i++)
+        {
+            scanf("%d", &a[i]);
+            c[i] = a[i];
+        }
+        int ok = 1;
+        int b = n;
+        for (int i = k - 1; i >= 0; i--)
+        {
+            if (a[i] < b)
+            {
+                ok = 0;
+                a[i]++;
+                for (int j = i + 1; j < k; j++)
+                    a[j] = a[j - 1] + 1;
+                break;
+            }
+            b--;
+        }
+        if (ok == 1)
+            printf("%d\n", k);
+        else
+        {
+            int s = 0, okk = 1;
+            for (int i = 0; i < k; i++)
+            {
+                for (int j = 0; j < k; j++)
+                {
+                    if (a[i] == c[j])
+                    {
+                        okk = 0;
+                        s++;
+                        break;
+                    }
+                }
+            }
+            printf("%d\n", k - s);
+        }
+    }
+}
