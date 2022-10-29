@@ -1,0 +1,44 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main()
+{
+     ios_base::sync_with_stdio(0);
+     cin.tie(0);
+     int n;
+     cin >> n;
+     long long a[n + 1], b[n + 1], c[n + 1], d[n + 1], e[n + 1], f[n + 1];
+     long long x[2 * n + 1], y[2 * n + 1], z[2 * n + 1];
+     long long ans = 0;
+     for (int i = 1; i <= n; i++)
+     {
+          cin >> a[i] >> b[i] >> c[i] >> d[i] >> e[i] >> f[i];
+          x[2 * i - 1] = a[i];
+          x[2 * i] = d[i];
+          y[2 * i - 1] = b[i];
+          y[2 * i] = e[i];
+          z[2 * i - 1] = c[i];
+          z[2 * i] = f[i];
+     }
+     sort(x + 1, x + 2 * n + 1);
+     sort(y + 1, y + 2 * n + 1);
+     sort(z + 1, z + 2 * n + 1);
+     for (int j = 1; j <= 2 * n; j++)
+     {
+          for (int k = 1; k <= 2 * n; k++)
+          {
+               for (int l = 1; l <= 2 * n; l++)
+               {
+                    for (int i = 1; i <= n; i++)
+                    {
+                         if (a[i] < x[j] && x[j] <= d[i] && b[i] < y[k] && y[k] <= e[i] && c[i] < z[l] && z[l] <= f[i])
+                         {
+                              ans += abs(x[j] - x[j - 1]) * abs(y[k] - y[k - 1]) * abs(z[l] - z[l - 1]);
+                              break;
+                         }
+                    }
+               }
+          }
+     }
+     cout << ans;
+}
